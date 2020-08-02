@@ -1,0 +1,40 @@
+{% extends "kmeg/base.html" %}
+
+{% block title_section %}
+    <title>  {{title}} </title>
+{%endblock title_section %}
+
+{% block body_section %}
+        <!-- Begining  of a Jumbotron and Container -->
+      <div class="jumbotron container">
+      <h1 class="display-4">KMeg Generator</h1>
+      <p class="lead">The images  will be displayed here.... .</p>
+      <hr class="my-4">
+          <!--Grid Section  to Loop Images-->
+            <div class="row">
+             {% if images %}
+                {% for image in images %}
+              <div class="col-md-6">
+              <img src="{{image.thumb_nail.url}}" alt="..." class="img-thumbnail">
+                  <p> <a href="{% url 'image' image.id %}">Title: {{image.title}}</a></p>
+                  <p> Image height and Width  {{image.thumb_nail.height}},{{image.thumb_nail.width}}</p>
+              </div>
+
+                {% endfor %}
+            {% endif %}
+          </div>
+
+
+
+
+          <!--End of Grid Section  to Loop Images-->
+
+
+
+    </div>
+    <!-- End   of a Jumbotron and Container -->
+
+{% endblock body_section %}
+
+
+

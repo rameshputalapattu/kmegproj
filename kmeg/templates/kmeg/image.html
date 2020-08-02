@@ -1,0 +1,20 @@
+{% extends "kmeg/base.html" %}
+
+{% block title_section %}
+    <title>  {{title}} </title>
+{%endblock title_section %}
+
+{% block body_section %}
+        <!-- Begining  of a Jumbotron and Container -->
+      <div class="jumbotron container">
+      <h1 class="display-4">KMeg Generator</h1>
+      <p class="lead">original picture</p>
+      <hr class="my-4">
+          <img src="{{image.jpeg_picture.url}}" alt="..." class="img-thumbnail">
+      </div>
+    <!-- End   of a Jumbotron and Container -->
+
+{% endblock body_section %}
+
+
+

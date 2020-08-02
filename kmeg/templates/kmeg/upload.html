@@ -1,0 +1,49 @@
+{% extends "kmeg/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title_section %}
+    <title>  {{title}} </title>
+{%endblock title_section %}
+
+{% block body_section %}
+        <!-- Begining  of a Jumbotron and Container -->
+      <div class="jumbotron container">
+      <h1 class="display-4">KMeg Generator</h1>
+      <p class="lead">This is a utility that uses color quantisation .</p>
+      <hr class="my-4">
+      <!-- Beginning of the Slider -->
+      <p>Choose a Value of Number of Colors from 2  to 100.</p>
+      <input type="range" name="" value="" id="myRange" min="2" max="100" step="1" >
+       <p>Value: <span id="demo"> </span></p>
+         <!-- End  of the Slider -->
+
+
+   <form method="POST" enctype="multipart/form-data">
+       {% csrf_token %}
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+         {{form|crispy}}
+        </div>
+      </div>
+       <button type="submit" class="btn btn-outline-info btn-sm">Submit</button>
+    </form>
+
+
+
+    </div>
+    <!-- End   of a Jumbotron and Container -->
+
+{% endblock body_section %}
+
+
+
+ {% block script_section %}
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demo");
+      output.innerHTML = slider.value;
+
+      slider.oninput = function() {
+        output.innerHTML = this.value;
+        }
+ {% endblock script_section %}
